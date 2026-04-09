@@ -1,42 +1,102 @@
-
+/* =========================
+   RESET / CONFIGURAÇÃO GERAL
+========================= */
 body {
-    font-family: Arial;
-    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
-.container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+
+/* =========================
+   TÍTULO
+========================= */
+.titulo {
+    font-size: 36px;
+    background: linear-gradient(90deg, #6C63FF, #00C9A7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.coluna {
-    background: white;
-    width: 250px;
-    min-height: 300px;
-    padding: 10px;
+/* Linha decorativa */
+.titulo::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #6C63FF;
+    margin: 10px auto;
     border-radius: 10px;
 }
 
-button {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-.tarefa {
-    background: #ddd;
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* permite quebrar linha */
+    gap: 15px;
+    padding: 20px;
 }
 
 
-.tarefa {
-    margin: 5px;
+/* =========================
+   COLUNAS DO KANBAN
+========================= */
+.coluna {
+    background: white;
+    width: 300px;
+    min-height: 300px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   INPUTS E SELECT
+========================= */
+input, select {
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #6C63FF;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #4e47cc;
+}
+
+
+/* =========================
+   TAREFAS
+========================= */
+.tarefa {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
     color: black;
 }
+
 
 /* Prioridades */
 .alta {
@@ -49,4 +109,36 @@ button {
 
 .baixa {
     background-color: #1dd1a1;
+}
+
+
+/* Botões dentro da tarefa */
+.tarefa button {
+    margin-top: 5px;
+    background: #333;
+}
+
+.tarefa button:hover {
+    background: black;
+}
+
+
+/* =========================
+   RESPONSIVIDADE 📱
+========================= */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column; /* empilha as colunas */
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%; /* ocupa quase toda a tela */
+    }
+
+    input, select, button {
+        width: 90%;
+        margin: 5px 0;
+    }
 }
