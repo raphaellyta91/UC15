@@ -1,4 +1,6 @@
+
 document.getElementById('botao').addEventListener('click', cadastrar)
+
 const tabela = document.getElementById('tabela').getElementsByTagName('tbody')[0]
 
 
@@ -18,7 +20,18 @@ function cadastrar(evento){
 
     const imc = (peso / (altura * altura)).toFixed(2)
 
+   
+    let classificacao = ""
 
+    if (imc < 18.5) {
+        classificacao = "Abaixo do peso"
+    } else if (imc < 25) {
+        classificacao = "Peso normal"
+    } else {
+        classificacao = "Acima do peso"
+    }
+
+   
     const linha = tabela.insertRow()
 
     linha.innerHTML = `
@@ -30,13 +43,14 @@ function cadastrar(evento){
         <td>${profissao}</td>
         <td>${altura}</td>
         <td>${peso}</td>
-        <td>${imc}</td>
+        <td>${imc} (${classificacao})</td>
         <td>
             <button onclick="editar(this)">Editar</button>
             <button onclick="excluir(this)">Excluir</button>
         </td>
     `
 
+    
     document.getElementById('form-cadastro').reset()
 }
 
@@ -62,6 +76,7 @@ function editar(elemento){
 
     linha.remove()
 }
+
 
 document.getElementById('form-cadastro').addEventListener('keydown', function(evento){
     if(evento.key === 'Enter'){
