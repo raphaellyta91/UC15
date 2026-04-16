@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Nutricional</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+<h1>Cadastro</h1>
+
+<form id="form-cadastro">
+
+    Nome: <input type="text" id="nome"><br><br>
+
+    Data de Nascimento:
+    <input type="date" id="nascimento"><br><br>
+
+    E-mail:
+    <input type="email" id="email"><br><br>
+
+    Telefone:
+    <input type="tel" id="telefone"><br><br>
+
+    Endereço:
+    <input type="text" id="endereco"><br><br>
+
+    Profissão:
+    <input type="text" id="profissao"><br><br>
+
+    Altura:
+    <input type="number" id="altura" step="0.01"><br><br>
+
+    Peso:
+    <input type="number" id="peso"><br><br>
+
+    <button id="botao" type="submit">Cadastrar</button>
+
+</form>
+
+<br>
+
+<table border="1px" id="tabela">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Profissão</th> 
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>IMC</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody id="tabelaPacientes"></tbody>
+</table>
+
+</body>
+</html>
