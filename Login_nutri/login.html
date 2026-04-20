@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<h2>ACESSE SUA CONTA</h2>
+
+<input type="text" id="email" placeholder="Email"><br><br>
+<input type="password" id="senha" placeholder="Senha"><br><br>
+
+<button onclick="acessar()">Acessar</button>
+
+<script>
+function acessar(){
+
+let emailDigitado = document.getElementById("email").value;
+let senhaDigitada = document.getElementById("senha").value;
+
+let emailSalvo = localStorage.getItem("email");
+let senhaSalva = localStorage.getItem("senha");
+
+if(emailDigitado === emailSalvo && senhaDigitada === senhaSalva){
+    alert("Login realizado com sucesso!");
+    window.location.href = "pacientes.html";
+} else {
+    alert("Usuário ou senha incorretos!");
+}
+
+}
+</script>
+
+</body>
+</html>
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
