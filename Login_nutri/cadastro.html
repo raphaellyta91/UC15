@@ -3,23 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
+
 <body>
- 
-<input type="text" id="nome" placeholder="Nome"><br><br>
-<input type="text" id="cpf" placeholder="Cpf"><br><br>
-<input type="text" id="email" placeholder="Email"><br><br>
 
-<input type="text" id="cep" placeholder="CEP" onblur="buscarCEP()"><br><br>
-<input type="text" id="logradouro" placeholder="Logradouro (Rua, Av...)"><br><br>
-<input type="text" id="bairro" placeholder="Bairro"><br><br>
-<input type="text" id="cidade" placeholder="Cidade"><br><br>
-<input type="text" id="estado" placeholder="Estado"><br><br>
-<input type="text" id="numero" placeholder="Número"><br><br>
+<div class="container">
+    <h2>Cadastro</h2>
 
-<input type="password" id="password" placeholder="password"><br><br>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="cpf" placeholder="CPF">
+    <input type="text" id="email" placeholder="Email">
 
-<button onclick="cadastrar()">Cadastrar</button>
+    <input type="text" id="cep" placeholder="CEP" onblur="buscarCEP()">
+    <input type="text" id="logradouro" placeholder="Logradouro">
+    <input type="text" id="bairro" placeholder="Bairro">
+    <input type="text" id="cidade" placeholder="Cidade">
+    <input type="text" id="estado" placeholder="Estado">
+    <input type="text" id="numero" placeholder="Número">
+
+    <input type="password" id="password" placeholder="Senha">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+</div>
 
 <script>
 function cadastrar() {
@@ -52,7 +103,6 @@ function cadastrar() {
 
 function buscarCEP() {
     let cep = document.getElementById("cep").value;
-
     cep = cep.replace(/\D/g, "");
 
     if (cep.length !== 8) {

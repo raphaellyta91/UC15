@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pokédex</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input {
+        width: 80%;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 8px 15px;
+        background: #ff3c3c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    img {
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Pokédex</h2>
+
+    <input type="text" id="pokemon" placeholder="Ex: pikachu">
+    <br>
+    <button onclick="buscarPokemon()">Buscar</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script>
+function buscarPokemon() {
+    let nome = document.getElementById("pokemon").value.toLowerCase();
+    let resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = "Carregando...";
+
+    fetch("https://pokeapi.co/api/v2/pokemon/" + nome)
+        .then(res => res.json())
+        .then(dados => {
+            resultado.innerHTML = `
+                <h3>${dados.name.toUpperCase()}</h3>
+                <img src="${dados.sprites.front_default}">
+                <p><strong>Tipo:</strong> ${dados.types[0].type.name}</p>
+                <p><strong>Altura:</strong> ${dados.height}</p>
+                <p><strong>Peso:</strong> ${dados.weight}</p>
+            `;
+        })
+        .catch(() => {
+            resultado.innerHTML = "Pokémon não encontrado ";
+        });
+}
+</script>
+
+</body>
+</html>
